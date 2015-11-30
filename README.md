@@ -5,4 +5,4 @@ Method for loading any web tiles as a WMTS in a GIS such as QGIS.
 
 You can load the WMTSGetCapabilites.xml in a QGIS using this link, leave the trailing "/" as is.
 
-https://eyensky.github.io/tiles2wmts/
+http://eyensky.github.io/tiles2wmts/WMTSGetCapabilities.xml
