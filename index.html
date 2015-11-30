@@ -27,7 +27,7 @@
 <h3>
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Making a WMTS Template</h3>
 
-<p>The WMTS spec allows RESTful calls and is agnostic to the source. By using the console in you favorite browser, navigate to the map you want to use as a WMTS layer. In the network tab, look for calls like this<br> "Request URL:http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/4/6/4" <br><br>That is the request the browser is making to fill that image. The numbers at the end (for ArcServer) are {TileMatrix}/{TileRow}/{TileCol}. Most other services would have {TileMatrix}/{TileCol}/{TileRow}. Now for a little string substitution...<br> In the url, replace the numbers at the end with the WMTS substitution characters. </p>
+<p>The WMTS spec allows RESTful calls and is agnostic to the source. By using the console in you favorite browser, navigate to the map you want to use as a WMTS layer. In the network tab, look for calls like this:<br><br> "Request URL:http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/4/6/4" <br><br>That is the request the browser is making to fill that image. The numbers at the end (for ArcServer) are {TileMatrix}/{TileRow}/{TileCol}. Most other services would have {TileMatrix}/{TileCol}/{TileRow}. Now for a little string substitution...<br> In the url, replace the numbers at the end with the WMTS substitution characters. </p>
 
 
       <footer class="site-footer">
