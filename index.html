@@ -30,10 +30,10 @@
 <p>The WMTS spec allows RESTful calls and is agnostic to the source. By using the console in you favorite browser, navigate to the map you want to use as a WMTS layer. In the network tab, look for calls like this:<br><br> "http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/4/6/4" <br><br>That is the request the browser is making to fill this image: <br><br><img src="4.png" alt="USGS Image Tile" style="width:128px;height:128px;"> <br><br>  The numbers at the end (for ArcServer) are zoom-level/row/column of the image. Most other services would have zoom-level/column/row. Now for a little string substitution...<br><br> In the url, replace the numbers at the end with the WMTS substitution strings: {TileMatrix} for zoom-level,{TileRow} for row, and {TileCol} for column. <br><br>
       <pre><code>http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/4/6/4<br></code></pre>
       Becomes:
-      <pre><code>http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{TileMatrix}/{TileRow}/{TileCol}</code></pre><br><br>
+      <pre><code>http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{TileMatrix}/{TileRow}/{TileCol}</code></pre>
       Then put that url into ResourceURL tag:
       
-      <pre><code>&ltResourceURL format="image/png" resourceType="tile" template="your URL here"/&gt</code></pre><br><br> 
+      <pre><code>&ltResourceURL format="image/png" resourceType="tile" template="your URL here"/&gt</code></pre> 
       double check the format (some are jpg) "image/png", and you're off.<br><br>
      Try this working example:<br><br><a href="http://eyensky.github.io/tiles2wmts/WMTSGetCapabilities.xml">http://eyensky.github.io/tiles2wmts/WMTSGetCapabilities.xml</a> </p>
 
