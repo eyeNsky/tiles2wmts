@@ -31,7 +31,9 @@
       <pre><code>http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/4/6/4<br></code></pre>
       Becomes:
       <pre><code>http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{TileMatrix}/{TileRow}/{TileCol}</code></pre><br><br>
-      Then put that url into the  &ltResourceURL&gt tag, check the format="image/png", and you're off.<br><br>
+      Then put that url into the:
+      
+      <pre><code>&ltResourceURL format="image/png" resourceType="tile" template="http://your-url.here/{TileMatrix}/{TileRow}/{TileCol}"/&gt</code></pre><br><br> tag, check the format="image/png", and you're off.<br><br>
      Try this working example:<br><br><a href="http://eyensky.github.io/tiles2wmts/WMTSGetCapabilities.xml">http://eyensky.github.io/tiles2wmts/WMTSGetCapabilities.xml</a> </p>
 
 
