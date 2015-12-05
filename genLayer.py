@@ -29,6 +29,7 @@ jin.close()
 
 
 for js in tjson:
+	# To follow the the tilejson spec ["tiles":"url",]
 	thisTiles = js['tiles'][0]
 	print thisTiles
 	if thisTiles == None:
