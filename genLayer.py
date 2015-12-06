@@ -1,9 +1,9 @@
 import json
 def layerTemplate():
-	template = '''    <!--Layer-->
+	template = """    <!--Layer-->
     <Layer>
-      <ows:Title>%s</ows:Title>
-      <ows:Identifier>%s</ows:Identifier>
+      <ows:Title>%(thisDescription)s</ows:Title>
+      <ows:Identifier>%(thisName)s</ows:Identifier>
       <ows:WGS84BoundingBox crs="urn:ogc:def:crs:OGC:2:84">
         <ows:LowerCorner>-180 -90</ows:LowerCorner>
         <ows:UpperCorner>180 90</ows:UpperCorner>
@@ -20,8 +20,9 @@ def layerTemplate():
         <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
       </TileMatrixSetLink>
       <!-- Note the switched Row/Col -->
-      <ResourceURL format="image/%s" resourceType="tile" template="%s"/>
-    </Layer>'''
+      <ResourceURL format="image/%(thisFormat)s" resourceType="tile" template="%(thisTiles)s"/>
+    </Layer>""" 
+    	return template
 
 jin = open('tiles.json','r')
 tjson = json.load(jin)
@@ -29,7 +30,19 @@ jin.close()
 
 
 for js in tjson:
-	thisTiles = js['tiles'][0]
-	print thisTiles
-	if thisTiles == None:
+	
+	theTiles = js['tiles'][0]
+	if theTiles == None:
 		print '"tiles" is a required field'
+	zSub = theTiles.replace('{z}','{TileMatrix}')
+	xSub = zSub.replace('{x}','{TileCol}')
+	ySub = xSub.replace('{y}','{TileRow}')
+	args = {}
+	args['thisTiles'] = ySub
+	print args['thisTiles']
+
+	args['thisFormat'] = js['format']
+	args['thisName'] = js['name']
+	
+	args['thisDescription'] = js['description']
+	print layerTemplate()%args
