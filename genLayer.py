@@ -1,3 +1,7 @@
+'''
+To follow the the tilejson spec "tiles":["url","url"]
+however, only the first url is used.
+'''
 import json
 def layerTemplate():
 	template = """    <!--Layer-->
@@ -30,14 +34,8 @@ jin.close()
 
 
 for js in tjson:
-
-	
 	theTiles = js['tiles'][0]
 	if theTiles == None:
-
-	# To follow the the tilejson spec "tiles":["url","url"]
-	# however, only the first url is used.
-
 		print '"tiles" is a required field'
 	zSub = theTiles.replace('{z}','{TileMatrix}')
 	xSub = zSub.replace('{x}','{TileCol}')
