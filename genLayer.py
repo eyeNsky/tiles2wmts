@@ -1,5 +1,5 @@
 '''
-To follow the the tilejson spec "tiles":["url","url"]
+To follow the tilejson spec "tiles":["url","url"]
 however, only the first url is used.
 '''
 import json

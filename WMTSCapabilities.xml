@@ -4,6 +4,10 @@
 	The host could be any tilesource, simply edit the rest url.
 
   Modified from a get capabilities response from tileserver.
+
+  Can be loaded in QGIS from a local file. 
+  Use "file://" and point to your xml:
+  file:///path/to/your/WMTSCapabilities.xml
 	-->
 <Capabilities xmlns="http://www.opengis.net/wmts/1.0" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetCapabilities_response.xsd" version="1.0.0">
   <!-- Service Identification -->
