@@ -19,7 +19,7 @@ def layerTemplate():
       <Style isDefault="true">
         <ows:Identifier>default</ows:Identifier>
       </Style>
-      <Format>image/png</Format>
+      <Format>image/%(thisFormat)s</Format>
       <TileMatrixSetLink>
         <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
       </TileMatrixSetLink>
@@ -42,10 +42,7 @@ for js in tjson:
 	ySub = xSub.replace('{y}','{TileRow}')
 	args = {}
 	args['thisTiles'] = ySub
-	print args['thisTiles']
-
 	args['thisFormat'] = js['format']
 	args['thisName'] = js['name']
-	
 	args['thisDescription'] = js['description']
 	print layerTemplate()%args
