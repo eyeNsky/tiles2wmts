@@ -30,9 +30,17 @@ jin.close()
 
 
 for js in tjson:
+<<<<<<< HEAD
 	
 	theTiles = js['tiles'][0]
 	if theTiles == None:
+=======
+	# To follow the the tilejson spec "tiles":["url","url"]
+	# however, only the first url is used.
+	thisTiles = js['tiles'][0]
+	print thisTiles
+	if thisTiles == None:
+>>>>>>> origin/master
 		print '"tiles" is a required field'
 	zSub = theTiles.replace('{z}','{TileMatrix}')
 	xSub = zSub.replace('{x}','{TileCol}')
