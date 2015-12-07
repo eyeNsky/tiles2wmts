@@ -1,5 +1,5 @@
 {
-	"title": "tile2wmts demo",
+	"title": "tiles2wmts demo",
 	"link": "http://eyensky.github.io/tiles2wmts/WMTSGetCapabilities.xml",
 	"tilejson": [{
 		"name": "USGS",
