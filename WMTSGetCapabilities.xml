@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-	WMTS GetCapabilities Document that points the client to tiles hosted at USGS and Mapquest.
-	The host could be any tilesource, simply edit the rest url.
+  WMTS GetCapabilities Document that points the client to tiles hosted at USGS and Mapquest.
+  The host could be any tilesource, simply edit the rest url.
 
   Modified from a get capabilities response from tileserver.
-	-->
+
+  Can be loaded in QGIS from a local file. 
+  Use "file://" and point to your xml:
+  file:///path/to/your/WMTSCapabilities.xml
+  -->
 <Capabilities xmlns="http://www.opengis.net/wmts/1.0" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetCapabilities_response.xsd" version="1.0.0">
   <!-- Service Identification -->
   <ows:ServiceIdentification>
-    <ows:Title>WMTS from USGS</ows:Title>
+    <ows:Title>tile2wmts demo</ows:Title>
     <ows:ServiceType>WMTS</ows:ServiceType>
     <ows:ServiceTypeVersion>1.0.0</ows:ServiceTypeVersion>
   </ows:ServiceIdentification>
@@ -17,7 +21,7 @@
     <ows:Operation name="GetCapabilities">
       <ows:DCP>
         <ows:HTTP>
-          <ows:Get xlink:href="https://github.com/eyenksy/tiles2wmts/WMTSCapabilities.xml">
+          <ows:Get xlink:href="http://eyensky.github.io/tiles2wmts/WMTSGetCapabilities.xml">
             <ows:Constraint name="GetEncoding">
               <ows:AllowedValues>
                 <ows:Value>RESTful</ows:Value>
@@ -25,7 +29,7 @@
             </ows:Constraint>
           </ows:Get>
           <!-- add KVP binding in 10.1 -->
-          <ows:Get xlink:href="https://github.com/eyenksy/tiles2wmts/WMTSCapabilities.xml">
+          <ows:Get xlink:href="http://eyensky.github.io/tiles2wmts/WMTSGetCapabilities.xml">
             <ows:Constraint name="GetEncoding">
               <ows:AllowedValues>
                 <ows:Value>KVP</ows:Value>
@@ -38,14 +42,14 @@
     <ows:Operation name="GetTile">
       <ows:DCP>
         <ows:HTTP>
-          <ows:Get xlink:href="https://github.com/eyenksy/tiles2wmts/WMTSCapabilities.xml">
+          <ows:Get xlink:href="http://eyensky.github.io/tiles2wmts/WMTSGetCapabilities.xml">
             <ows:Constraint name="GetEncoding">
               <ows:AllowedValues>
                 <ows:Value>RESTful</ows:Value>
               </ows:AllowedValues>
             </ows:Constraint>
           </ows:Get>
-          <ows:Get xlink:href="https://github.com/eyenksy/tiles2wmts/WMTSCapabilities.xml">
+          <ows:Get xlink:href="http://eyensky.github.io/tiles2wmts/WMTSGetCapabilities.xml">
             <ows:Constraint name="GetEncoding">
               <ows:AllowedValues>
                 <ows:Value>KVP</ows:Value>
@@ -56,12 +60,10 @@
       </ows:DCP>
     </ows:Operation>
   </ows:OperationsMetadata>
-  <Contents>
-
-    <!--Layer-->
+  <Contents>    <!--Layer-->
     <Layer>
-      <ows:Title>USGS National Map Topo/Roads</ows:Title>
-      <ows:Identifier>USGS National Map Topo/Roads</ows:Identifier>
+      <ows:Title>USGS</ows:Title>
+      <ows:Identifier>USGS Imagery</ows:Identifier>
       <ows:WGS84BoundingBox crs="urn:ogc:def:crs:OGC:2:84">
         <ows:LowerCorner>-180 -90</ows:LowerCorner>
         <ows:UpperCorner>180 90</ows:UpperCorner>
@@ -77,36 +79,12 @@
       <TileMatrixSetLink>
         <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
       </TileMatrixSetLink>
-      <!-- Note the switched Row/Col -->
-      <ResourceURL format="image/png" resourceType="tile" template="http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{TileMatrix}/{TileRow}/{TileCol}"/>
-    </Layer>
-
-    <!--Layer-->
-    <Layer>
-      <ows:Title>USGS National Map Imagery</ows:Title>
-      <ows:Identifier>USGS National Map Imagery</ows:Identifier>
-      <ows:WGS84BoundingBox crs="urn:ogc:def:crs:OGC:2:84">
-        <ows:LowerCorner>-180 -90</ows:LowerCorner>
-        <ows:UpperCorner>180 90</ows:UpperCorner>
-      </ows:WGS84BoundingBox>
-      <ows:BoundingBox crs="urn:ogc:def:crs:EPSG::3857">
-        <ows:LowerCorner>-20037508.34 -20037508.34</ows:LowerCorner>
-        <ows:UpperCorner>20037508.34 20037508.34</ows:UpperCorner>
-      </ows:BoundingBox>
-      <Style isDefault="true">
-        <ows:Identifier>default</ows:Identifier>
-      </Style>
-      <Format>image/png</Format>
-      <TileMatrixSetLink>
-        <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
-      </TileMatrixSetLink>
-      <!-- Note the switched Row/Col -->
+      <!-- Check for switched Row/Col if arcgis rest is the source -->
       <ResourceURL format="image/png" resourceType="tile" template="http://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{TileMatrix}/{TileRow}/{TileCol}"/>
-    </Layer>
-     <!--Layer-->
+    </Layer>    <!--Layer-->
     <Layer>
-      <ows:Title>Mapquest</ows:Title>
-      <ows:Identifier>Mapquest</ows:Identifier>
+      <ows:Title>USGS</ows:Title>
+      <ows:Identifier>USGS Topo</ows:Identifier>
       <ows:WGS84BoundingBox crs="urn:ogc:def:crs:OGC:2:84">
         <ows:LowerCorner>-180 -90</ows:LowerCorner>
         <ows:UpperCorner>180 90</ows:UpperCorner>
@@ -122,10 +100,30 @@
       <TileMatrixSetLink>
         <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
       </TileMatrixSetLink>
-      <ResourceURL format="image/png" resourceType="tile" template="https://otile1-s.mqcdn.com/tiles/1.0.0/map/{TileMatrix}/{TileCol}/{TileRow}.jpg"/>
-    </Layer>
-
-    <!--TileMatrixSet-->
+      <!-- Check for switched Row/Col if arcgis rest is the source -->
+      <ResourceURL format="image/png" resourceType="tile" template="http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{TileMatrix}/{TileRow}/{TileCol}"/>
+    </Layer>    <!--Layer-->
+    <Layer>
+      <ows:Title>MapQuest</ows:Title>
+      <ows:Identifier>OSM</ows:Identifier>
+      <ows:WGS84BoundingBox crs="urn:ogc:def:crs:OGC:2:84">
+        <ows:LowerCorner>-180 -90</ows:LowerCorner>
+        <ows:UpperCorner>180 90</ows:UpperCorner>
+      </ows:WGS84BoundingBox>
+      <ows:BoundingBox crs="urn:ogc:def:crs:EPSG::3857">
+        <ows:LowerCorner>-20037508.34 -20037508.34</ows:LowerCorner>
+        <ows:UpperCorner>20037508.34 20037508.34</ows:UpperCorner>
+      </ows:BoundingBox>
+      <Style isDefault="true">
+        <ows:Identifier>default</ows:Identifier>
+      </Style>
+      <Format>image/jpg</Format>
+      <TileMatrixSetLink>
+        <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
+      </TileMatrixSetLink>
+      <!-- Check for switched Row/Col if arcgis rest is the source -->
+      <ResourceURL format="image/jpg" resourceType="tile" template="https://otile1-s.mqcdn.com/tiles/1.0.0/map/{TileMatrix}/{TileCol}/{TileRow}.jpg"/>
+    </Layer>    <!--TileMatrixSet-->
 
     <TileMatrixSet>
       <ows:Title>GoogleMapsCompatible</ows:Title>
@@ -507,5 +505,5 @@
     </TileMatrixSet>
 
   </Contents>
-  <ServiceMetadataURL xlink:href="https://github.com/eyenksy/tiles2wmts/WMTSCapabilities.xml"/>
+  <ServiceMetadataURL xlink:href="http://eyensky.github.io/tiles2wmts/WMTSGetCapabilities.xml"/>
 </Capabilities>
