@@ -6,8 +6,8 @@ import json
 def layerTemplate():
 	template = """    <!--Layer-->
     <Layer>
-      <ows:Title>%(thisDescription)s</ows:Title>
-      <ows:Identifier>%(thisName)s</ows:Identifier>
+      <ows:Title>%(thisName)s</ows:Title>
+      <ows:Identifier>%(thisDescription)s</ows:Identifier>
       <ows:WGS84BoundingBox crs="urn:ogc:def:crs:OGC:2:84">
         <ows:LowerCorner>-180 -90</ows:LowerCorner>
         <ows:UpperCorner>180 90</ows:UpperCorner>
