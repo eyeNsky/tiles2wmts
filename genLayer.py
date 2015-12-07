@@ -23,7 +23,7 @@ def layerTemplate():
       <TileMatrixSetLink>
         <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
       </TileMatrixSetLink>
-      <!-- Note the switched Row/Col -->
+      <!-- Check for switched Row/Col if arcgis rest is the source -->
       <ResourceURL format="image/%(thisFormat)s" resourceType="tile" template="%(thisTiles)s"/>
     </Layer>""" 
     	return template
@@ -33,8 +33,12 @@ tjson = json.load(jin)
 jin.close()
 
 
-for js in tjson:
+theTitle = tjson['title']
+theLink = tjson['link']
+print theTitle,theLink
+for js in tjson['tilejson']:
 	theTiles = js['tiles'][0]
+  #print theTiles
 	if theTiles == None:
 		print '"tiles" is a required field'
 	zSub = theTiles.replace('{z}','{TileMatrix}')

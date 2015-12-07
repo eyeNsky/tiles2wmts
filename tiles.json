@@ -1,4 +1,9 @@
-	[
+{
+	"title": "tile2wmts demo",
+	"link": "http://eyensky.github.io/tiles2wmts/WMTSGetCapabilities.xml",
+	"tilejson": [
 	{"name":"USGS","description":"USGS Imagery","tiles":["http://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}"],"format":"png"},
-	{"name":"USGS","description":"USGS Imagery","tiles":["http://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}"],"format":"png"}
+	{"name":"USGS","description":"USGS Topo","tiles":["http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}"],"format":"png"},
+	{"name":"MapQuest","description":"OSM","tiles":["https://otile1-s.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg"],"format":"jpg"}
 	]
+}
