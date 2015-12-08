@@ -11,7 +11,26 @@
 		"description": "USGS Topo",
 		"tiles": ["http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}"],
 		"format": "png"
-	}, {
+	},
+ 	{
+		"name": "USGS",
+		"description": "USGS Imagery Topo",
+		"tiles": ["http://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryTopo/MapServer/tile/{z}/{y}/{x}"],
+		"format": "png"
+	},
+	{
+		"name": "USGS",
+		"description": "USGS Hydro-NHD",
+		"tiles": ["http://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroNHD/MapServer/tile/{z}/{y}/{x}"],
+		"format": "png"
+	},
+	{
+		"name": "USGS",
+		"description": "USGS Hill Shade",
+		"tiles": ["http://basemap.nationalmap.gov/arcgis/rest/services/USGSShadedReliefOnly/MapServer/tile/{z}/{y}/{x}"],
+		"format": "png"
+	},
+	{
 		"name": "MapQuest",
 		"description": "OSM",
 		"tiles": ["https://otile1-s.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg"],

@@ -12,7 +12,7 @@
 <Capabilities xmlns="http://www.opengis.net/wmts/1.0" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetCapabilities_response.xsd" version="1.0.0">
   <!-- Service Identification -->
   <ows:ServiceIdentification>
-    <ows:Title>tile2wmts demo</ows:Title>
+    <ows:Title>tiles2wmts demo</ows:Title>
     <ows:ServiceType>WMTS</ows:ServiceType>
     <ows:ServiceTypeVersion>1.0.0</ows:ServiceTypeVersion>
   </ows:ServiceIdentification>
@@ -102,6 +102,69 @@
       </TileMatrixSetLink>
       <!-- Check for switched Row/Col if arcgis rest is the source -->
       <ResourceURL format="image/png" resourceType="tile" template="http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{TileMatrix}/{TileRow}/{TileCol}"/>
+    </Layer>    <!--Layer-->
+    <Layer>
+      <ows:Title>USGS</ows:Title>
+      <ows:Identifier>USGS Imagery Topo</ows:Identifier>
+      <ows:WGS84BoundingBox crs="urn:ogc:def:crs:OGC:2:84">
+        <ows:LowerCorner>-180 -90</ows:LowerCorner>
+        <ows:UpperCorner>180 90</ows:UpperCorner>
+      </ows:WGS84BoundingBox>
+      <ows:BoundingBox crs="urn:ogc:def:crs:EPSG::3857">
+        <ows:LowerCorner>-20037508.34 -20037508.34</ows:LowerCorner>
+        <ows:UpperCorner>20037508.34 20037508.34</ows:UpperCorner>
+      </ows:BoundingBox>
+      <Style isDefault="true">
+        <ows:Identifier>default</ows:Identifier>
+      </Style>
+      <Format>image/png</Format>
+      <TileMatrixSetLink>
+        <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
+      </TileMatrixSetLink>
+      <!-- Check for switched Row/Col if arcgis rest is the source -->
+      <ResourceURL format="image/png" resourceType="tile" template="http://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryTopo/MapServer/tile/{TileMatrix}/{TileRow}/{TileCol}"/>
+    </Layer>    <!--Layer-->
+    <Layer>
+      <ows:Title>USGS</ows:Title>
+      <ows:Identifier>USGS Hydro-NHD</ows:Identifier>
+      <ows:WGS84BoundingBox crs="urn:ogc:def:crs:OGC:2:84">
+        <ows:LowerCorner>-180 -90</ows:LowerCorner>
+        <ows:UpperCorner>180 90</ows:UpperCorner>
+      </ows:WGS84BoundingBox>
+      <ows:BoundingBox crs="urn:ogc:def:crs:EPSG::3857">
+        <ows:LowerCorner>-20037508.34 -20037508.34</ows:LowerCorner>
+        <ows:UpperCorner>20037508.34 20037508.34</ows:UpperCorner>
+      </ows:BoundingBox>
+      <Style isDefault="true">
+        <ows:Identifier>default</ows:Identifier>
+      </Style>
+      <Format>image/png</Format>
+      <TileMatrixSetLink>
+        <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
+      </TileMatrixSetLink>
+      <!-- Check for switched Row/Col if arcgis rest is the source -->
+      <ResourceURL format="image/png" resourceType="tile" template="http://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroNHD/MapServer/tile/{TileMatrix}/{TileRow}/{TileCol}"/>
+    </Layer>    <!--Layer-->
+    <Layer>
+      <ows:Title>USGS</ows:Title>
+      <ows:Identifier>USGS Hill Shade</ows:Identifier>
+      <ows:WGS84BoundingBox crs="urn:ogc:def:crs:OGC:2:84">
+        <ows:LowerCorner>-180 -90</ows:LowerCorner>
+        <ows:UpperCorner>180 90</ows:UpperCorner>
+      </ows:WGS84BoundingBox>
+      <ows:BoundingBox crs="urn:ogc:def:crs:EPSG::3857">
+        <ows:LowerCorner>-20037508.34 -20037508.34</ows:LowerCorner>
+        <ows:UpperCorner>20037508.34 20037508.34</ows:UpperCorner>
+      </ows:BoundingBox>
+      <Style isDefault="true">
+        <ows:Identifier>default</ows:Identifier>
+      </Style>
+      <Format>image/png</Format>
+      <TileMatrixSetLink>
+        <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
+      </TileMatrixSetLink>
+      <!-- Check for switched Row/Col if arcgis rest is the source -->
+      <ResourceURL format="image/png" resourceType="tile" template="http://basemap.nationalmap.gov/arcgis/rest/services/USGSShadedReliefOnly/MapServer/tile/{TileMatrix}/{TileRow}/{TileCol}"/>
     </Layer>    <!--Layer-->
     <Layer>
       <ows:Title>MapQuest</ows:Title>
